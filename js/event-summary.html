@@ -8,7 +8,15 @@
 <body>
     <h1>Final DOM Event Handeleers</h1>
     <h3 id="handler-status">Default Text</h3>
-    <button onclick="handleOnClick()">Handl Event By Add Onclick Function</button>
+    <p id="input-text-display">Default input text</p>
+    <input id="input-field" type="text">
+    <button id="btn-update">Update</button>
+
+    <br>
+    <br>
+
+
+    <button onclick="handleOnClick()">Handle Event By Add Onclick Function</button>
     <button id="event-listener">handle event by addEventListener</button>
     <script>
         function handleOnClick(){
@@ -16,6 +24,21 @@
             handlerStatus.innerText = 'Handled by function attached on click attribute'
         }
         // option : 02
+        document.getElementById('event-listener').addEventListener('click',function(){
+            const handlerStatus = document.getElementById('handler-status');
+            handlerStatus.innerText = 'Text updated by add event listener button';
+        })
+
+        // option : 02 again:
+        document.getElementById('btn-update').addEventListener('click',function(){
+              const inputField = document.getElementById('input-field');
+              const inputText = inputField.value;
+
+              const p = document.getElementById('input-text-display');
+              p.innerText = inputText;  // eta dia notun leka update kora jai
+              inputField.value = '';
+
+        })
         
     </script>
     
